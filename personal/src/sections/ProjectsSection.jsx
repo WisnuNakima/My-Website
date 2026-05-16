@@ -70,8 +70,8 @@ export default function ProjectsSection() {
 
       {/* View All Projects Button */}
       <div className="projects-actions">
-        <a href="#works" className="projects-btn">all projects</a>
-        <a href="#works" className="projects-arrow-btn">
+        <a href="/works" className="projects-btn">all projects</a>
+        <a href="/works" className="projects-arrow-btn">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
