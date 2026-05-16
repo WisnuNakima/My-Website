@@ -1,0 +1,467 @@
+/* Contact Hero Section */
+.contact-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.contact-hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-hero-content {
+  max-width: 900px;
+  text-align: left;
+}
+
+.contact-hero-title {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.contact-hero-subtitle {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+/* Section Header */
+.contact-section-header {
+  margin-bottom: 4rem;
+}
+
+.contact-section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* Personal Data Section */
+.contact-section-personal {
+  min-height: 100vh;
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-section-personal .contact-section-title {
+  color: var(--text-color, #f5f5f5);
+  transition: color 0.3s ease;
+}
+
+.contact-section-personal.dark-text .contact-section-title {
+  color: #f5f5f5;
+}
+
+.personal-data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem 6rem;
+  max-width: 1200px;
+}
+
+.personal-data-item {
+  border-bottom: 1px solid rgba(245, 245, 245, 0.2);
+  padding-bottom: 2rem;
+}
+
+.data-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--label-color, rgba(245, 245, 245, 0.6));
+  margin: 0 0 1rem 0;
+  transition: color 0.3s ease;
+}
+
+.data-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-color, #f5f5f5);
+  margin: 0;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.data-link {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.data-link:hover {
+  color: #c4ff00;
+}
+
+/* Education Section */
+.contact-section-education {
+  min-height: 100vh;
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-section-education .contact-section-title {
+  color: var(--education-title-color, #f5f5f5);
+  transition: color 0.3s ease;
+}
+
+.education-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  max-width: 1200px;
+}
+
+.education-item {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.2);
+  transition: border-color 0.3s ease;
+}
+
+.education-period {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--education-period-color, #f5f5f5);
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.education-school {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--education-text-color, #f5f5f5);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.education-role {
+  font-size: 1rem;
+  color: var(--education-role-color, rgba(245, 245, 245, 0.7));
+  margin: 0;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+/* Skills Section */
+.contact-section-skills {
+  min-height: 100vh;
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-section-skills .contact-section-title {
+  color: var(--skills-title-color, #f5f5f5);
+  transition: color 0.3s ease;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1400px;
+}
+
+.skill-card {
+  padding: 2.5rem;
+  background-color: #1a1a1a;
+  border: 1px solid rgba(245, 245, 245, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  background-color: #1a1a1a;
+  border-color: rgba(196, 255, 0, 0.3);
+}
+
+.skill-percentage {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #f5f5f5;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.skill-percentage::after {
+  content: '%';
+  font-size: 2rem;
+  margin-left: 0.25rem;
+  color: #f5f5f5;
+}
+
+.skill-label {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f5f5f5;
+  margin: 0 0 1rem 0;
+}
+
+.skill-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f5f5f5;
+  margin: 0;
+}
+
+/* Quote Section */
+.contact-section-quote {
+  min-height: 100vh;
+  padding: 8rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-wrapper {
+  max-width: 1000px;
+  text-align: center;
+  position: relative;
+}
+
+.quote-mark {
+  font-size: 12rem;
+  font-weight: 700;
+  color: #c4ff00;
+  line-height: 1;
+  margin-bottom: -2rem;
+  opacity: 0.3;
+}
+
+.quote-text {
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--quote-text-color, #1a1a1a);
+  margin: 0 0 2rem 0;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.quote-author {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--quote-author-color, #666);
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contact-hero {
+    padding: 6rem 2rem;
+  }
+
+  .contact-hero-title {
+    font-size: 4.5rem;
+  }
+
+  .contact-hero-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .contact-section-personal,
+  .contact-section-education,
+  .contact-section-skills,
+  .contact-section-quote {
+    padding: 6rem 2rem;
+  }
+
+  .contact-section-title {
+    font-size: 2.5rem;
+  }
+
+  .personal-data-grid {
+    gap: 3rem 4rem;
+  }
+
+  .education-list {
+    gap: 3rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .quote-text {
+    font-size: 2rem;
+  }
+
+  .quote-mark {
+    font-size: 10rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 5rem 1.5rem;
+  }
+
+  .contact-hero-title {
+    font-size: 3.5rem;
+  }
+
+  .contact-hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .contact-section-personal,
+  .contact-section-education,
+  .contact-section-skills,
+  .contact-section-quote {
+    padding: 5rem 1.5rem;
+  }
+
+  .contact-section-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .personal-data-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .data-value {
+    font-size: 1.25rem;
+  }
+
+  .education-list {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .education-school {
+    font-size: 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .skill-card {
+    padding: 2rem;
+  }
+
+  .skill-percentage {
+    font-size: 3rem;
+  }
+
+  .skill-label {
+    font-size: 1.25rem;
+  }
+
+  .quote-text {
+    font-size: 1.5rem;
+  }
+
+  .quote-mark {
+    font-size: 8rem;
+  }
+
+  .quote-author {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero {
+    padding: 4rem 1rem;
+  }
+
+  .contact-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .contact-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .contact-section-personal,
+  .contact-section-education,
+  .contact-section-skills,
+  .contact-section-quote {
+    padding: 4rem 1rem;
+  }
+
+  .contact-section-title {
+    font-size: 1.75rem;
+  }
+
+  .personal-data-grid {
+    gap: 2rem;
+  }
+
+  .data-label {
+    font-size: 0.75rem;
+  }
+
+  .data-value {
+    font-size: 1.1rem;
+  }
+
+  .education-list {
+    gap: 2rem;
+  }
+
+  .education-school {
+    font-size: 1.25rem;
+  }
+
+  .education-role {
+    font-size: 0.9rem;
+  }
+
+  .skill-card {
+    padding: 1.5rem;
+  }
+
+  .skill-percentage {
+    font-size: 2.5rem;
+  }
+
+  .skill-label {
+    font-size: 1.1rem;
+  }
+
+  .skill-description {
+    font-size: 0.875rem;
+  }
+
+  .quote-text {
+    font-size: 1.25rem;
+  }
+
+  .quote-mark {
+    font-size: 6rem;
+    margin-bottom: -1rem;
+  }
+
+  .quote-author {
+    font-size: 0.9rem;
+  }
+}
