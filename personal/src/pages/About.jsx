@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import TextFadeScroll from '../components/TextFadeScroll'
-import MarqueeText from '../components/MarqueeText'
 import RadiusOnScroll from '../components/RadiusOnScroll'
 import InteractiveRobot from '../components/InteractiveRobot'
-import CounterAnimation from '../components/CounterAnimation'
 import PageTransition from '../components/PageTransition'
-import wisnuPhoto from '../assets/wisnu-about.jpeg'
+import TextFadeScroll from '../components/TextFadeScroll'
+import AboutHeroSection from '../sections/AboutHeroSection'
+import AboutContentSection from '../sections/AboutContentSection'
+import AboutSkillsSection from '../sections/AboutSkillsSection'
 import '../App.css'
 import './About.css'
 
@@ -158,186 +158,9 @@ function About() {
 
       {/* About Content */}
       <PageTransition>
-      <section className={`about-hero ${isVisible ? 'visible' : ''}`}>
-        <div className="about-hero-content">
-          <TextFadeScroll
-            text={
-              <>
-                <h1 className="about-hero-title">About Me</h1>
-                <p className="about-hero-subtitle">
-                  Saya memiliki hobi bermain game, mendengarkan musik, dan membeli berbagai mainan untuk koleksi pribadi meskipun saya sudah dewasa, 
-                  karena hal tersebut menjadi salah satu cara saya untuk menikmati waktu luang dan mengekspresikan minat yang saya sukai sejak lama. 
-                  Selain itu, saya juga memiliki keinginan besar untuk dapat bekerja atau berlibur di luar negeri agar bisa mendapatkan pengalaman baru, mengenal budaya yang berbeda, serta memperluas wawasan dan relasi di masa depan.
-
-                </p>
-              </>
-            }
-            direction="Bottom → Top"
-          />
-        </div>
-      </section>
-
-      {/* Section 2 - UI & UX Designer */}
-      <section className="about-section-2">
-        {/* Marquee Text */}
-        <div className="about-marquee-wrapper">
-          <MarqueeText text="INTERESTED IN FRONTEND AND BACKEND • " speed={80} />
-        </div>
-
-        {/* Two Column Layout */}
-        <div className="about-two-column">
-          {/* Left - Text Content */}
-          <div className="about-text-content">
-            <TextFadeScroll
-              text={
-                <>
-                  <p className="about-paragraph">
-                    Saya memiliki kemampuan soft skill berupa kemampuan menghafal sesuatu dengan cukup cepat serta mampu memotivasi diri sendiri agar tetap konsisten dalam menjalankan tugas dan kegiatan sehari-hari, 
-                    disertai dengan sedikit kreativitas dalam menyelesaikan berbagai pekerjaan.
-                  </p>
-                  <p className="about-paragraph">
-                   Dalam bidang hard skill, saya mampu membuat desain menggunakan Canva serta menyusun prompt AI agar hasil yang diberikan sesuai dengan kebutuhan dan keinginan saya. 
-                   Selain itu, saya juga termasuk pribadi yang tidak suka menunda pekerjaan, 
-                   sehingga saya selalu berusaha menyelesaikan tugas-tugas lebih awal sebelum akhir pekan tiba agar pekerjaan tetap teratur dan tidak menumpuk.
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          {/* Right - Photo */}
-          <div className="about-photo-wrapper">
-            <div className="about-photo-placeholder">
-              <img src={wisnuPhoto} alt="Wisnu" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3 - Skills */}
-      <section className="about-section-3">
-        <div className="skills-header">
-          <TextFadeScroll
-            text={
-              <>
-                <h2 className="skills-title">My Skills</h2>
-                <p className="skills-subtitle">
-                  Saya akan terus belajar sebanyak-banyaknya 
-                  agar ilmu yang saya pelajari agar berguna di masa depan
-                </p>
-              </>
-            }
-            direction="Bottom → Top"
-          />
-        </div>
-
-        <div className="skills-grid">
-          {/* Programming Languages */}
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={30} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">HTML</h3>
-                  <p className="skill-description">
-                    Saya sudah mempelajari dasar HTML untuk membuat struktur dan tampilan awal sebuah website sederhana.
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={15} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">CSS</h3>
-                  <p className="skill-description">
-                    Saya mempelajari dasar CSS untuk mengatur warna, font, dan tampilan website agar lebih menarik.
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={5} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">JavaScript</h3>
-                  <p className="skill-description">
-                    Saya baru memahami dasar JavaScript untuk membuat interaksi sederhana pada website.
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          {/* Tools & Software */}
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={10} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">Cisco Packet Tracer</h3>
-                  <p className="skill-description">
-                    Saya dapat membuat topologi sederhana seperti topologi star di Cisco Packet Tracer
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={75} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">Canva</h3>
-                  <p className="skill-description">
-                    Saya cukup memahami Canva untuk membuat desain seperti poster, presentasi, dan konten visual lainnya.
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={10} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">Winbox</h3>
-                  <p className="skill-description">
-                    Saya dapat melakukan konfigurasi jaringan sederhana di Winbox
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-        </div>
-      </section>
+      <AboutHeroSection isVisible={isVisible} />
+      <AboutContentSection />
+      <AboutSkillsSection />
 
       {/* Footer Section */}
       <footer className="footer-section">

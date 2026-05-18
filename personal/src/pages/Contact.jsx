@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
-import TextFadeScroll from '../components/TextFadeScroll'
 import RadiusOnScroll from '../components/RadiusOnScroll'
 import InteractiveRobot from '../components/InteractiveRobot'
-import CounterAnimation from '../components/CounterAnimation'
 import PageTransition from '../components/PageTransition'
+import TextFadeScroll from '../components/TextFadeScroll'
+import ContactHeroSection from '../sections/ContactHeroSection'
+import ContactPersonalDataSection from '../sections/ContactPersonalDataSection'
+import ContactEducationSection from '../sections/ContactEducationSection'
+import ContactSkillsSection from '../sections/ContactSkillsSection'
+import ContactQuoteSection from '../sections/ContactQuoteSection'
 import '../App.css'
 import './Contact.css'
 
@@ -213,317 +217,35 @@ function Contact() {
         </div>
       </div>
 
-      {/* Hero Section */}
       <PageTransition>
-      <section className={`contact-hero ${isVisible ? 'visible' : ''}`}>
-        <div className="contact-hero-content">
-          <TextFadeScroll
-            text={
-              <>
-                <h1 className="contact-hero-title">Let's Connect</h1>
-                <p className="contact-hero-subtitle">
-                  Hubungi saya untuk kolaborasi, pertanyaan, atau sekadar ngobrol tentang teknologi dan proyek menarik
-                </p>
-              </>
-            }
-            direction="Bottom → Top"
-          />
-        </div>
-      </section>
+        {/* Hero Section */}
+        <ContactHeroSection isVisible={isVisible} />
 
-      {/* Personal Data Section */}
-      <section className="contact-section-personal" style={{ '--text-color': textColor, '--label-color': labelColor }}>
-        <div className="contact-section-header">
-          <TextFadeScroll
-            text={<h2 className="contact-section-title">Data Pribadi</h2>}
-            direction="Bottom → Top"
-          />
-        </div>
+        {/* Personal Data Section */}
+        <ContactPersonalDataSection textColor={textColor} labelColor={labelColor} />
 
-        <div className="personal-data-grid">
-          <div className="personal-data-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <h3 className="data-label">Nama Lengkap</h3>
-                  <p className="data-value">Wisnu Nakima</p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
+        {/* Education Section */}
+        <ContactEducationSection 
+          educationTitleColor={clampedProgress > 0.5 ? '#f5f5f5' : '#1a1a1a'}
+          educationTextColor={clampedProgress > 0.5 ? '#f5f5f5' : '#1a1a1a'}
+          educationRoleColor={clampedProgress > 0.5 ? 'rgba(245, 245, 245, 0.7)' : 'rgba(26, 26, 26, 0.7)'}
+          educationPeriodColor={clampedProgress > 0.5 ? '#f5f5f5' : '#1a1a1a'}
+        />
 
-          <div className="personal-data-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <h3 className="data-label">Email</h3>
-                  <a href="mailto:wisnunakima09@gmail.com" className="data-value data-link">
-                    wisnunakima09@gmail.com
-                  </a>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
+        {/* Skills Section */}
+        <ContactSkillsSection skillsTitleColor={clampedProgress < 0.5 ? '#1a1a1a' : '#f5f5f5'} />
 
-          <div className="personal-data-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <h3 className="data-label">WhatsApp</h3>
-                  <a href="https://wa.me/6281212264997" target="_blank" rel="noopener noreferrer" className="data-value data-link">
-                    +62 812-1226-4997
-                  </a>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
+        {/* Quote Section */}
+        <ContactQuoteSection 
+          quoteTextColor={clampedProgress < 0.5 ? '#1a1a1a' : '#f5f5f5'}
+          quoteAuthorColor={clampedProgress < 0.5 ? '#666' : 'rgba(245, 245, 245, 0.7)'}
+        />
 
-          <div className="personal-data-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <h3 className="data-label">Lokasi</h3>
-                  <p className="data-value">Semarang, Indonesia</p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="personal-data-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <h3 className="data-label">GitHub</h3>
-                  <a href="https://github.com/WisnuNakima" target="_blank" rel="noopener noreferrer" className="data-value data-link">
-                    github.com/WisnuNakima
-                  </a>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="personal-data-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <h3 className="data-label">LinkedIn</h3>
-                  <a href="https://www.linkedin.com/in/wisnu-nakima-70884340a/" target="_blank" rel="noopener noreferrer" className="data-value data-link">
-                    linkedin.com/in/wisnu-nakima
-                  </a>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Education Section */}
-      <section className="contact-section-education" style={{ '--education-title-color': clampedProgress > 0.5 ? '#f5f5f5' : '#1a1a1a', '--education-text-color': clampedProgress > 0.5 ? '#f5f5f5' : '#1a1a1a', '--education-role-color': clampedProgress > 0.5 ? 'rgba(245, 245, 245, 0.7)' : 'rgba(26, 26, 26, 0.7)', '--education-period-color': clampedProgress > 0.5 ? '#f5f5f5' : '#1a1a1a' }}>
-        <div className="contact-section-header">
-          <TextFadeScroll
-            text={<h2 className="contact-section-title">Data Pendidikan</h2>}
-            direction="Bottom → Top"
-          />
-        </div>
-
-        <div className="education-list">
-          <div className="education-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="education-period">2014 - 2016</div>
-                  <h3 className="education-school">TK Busthanul Atfal 36</h3>
-                  <p className="education-role">Kindergarten Student</p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="education-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="education-period">2016 - 2021</div>
-                  <h3 className="education-school">SD N Lamper Kidul 01</h3>
-                  <p className="education-role">Elementary School Student</p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="education-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="education-period">2021 - 2024</div>
-                  <h3 className="education-school">SMP N 27 Semarang</h3>
-                  <p className="education-role">Junior High School Student</p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="education-item">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="education-period">2024 - PRESENT</div>
-                  <h3 className="education-school">SMK N 7 Semarang</h3>
-                  <p className="education-role">Vocational High School Student (SIJA)</p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="contact-section-skills" style={{ '--skills-title-color': clampedProgress < 0.5 ? '#1a1a1a' : '#f5f5f5' }}>
-        <div className="contact-section-header">
-          <TextFadeScroll
-            text={<h2 className="contact-section-title">Data Skills</h2>}
-            direction="Bottom → Top"
-          />
-        </div>
-
-        <div className="skills-grid">
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={30} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">HTML</h3>
-                  <p className="skill-description">
-                    Saya sudah mempelajari dasar HTML untuk membuat struktur dan tampilan awal sebuah website sederhana.
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={15} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">CSS</h3>
-                  <p className="skill-description">
-                    Saya mempelajari dasar CSS untuk mengatur warna, font, dan tampilan website agar lebih menarik.
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={5} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">JavaScript</h3>
-                  <p className="skill-description">
-                    Saya baru memahami dasar JavaScript untuk membuat interaksi sederhana pada website.
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={10} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">Cisco Packet Tracer</h3>
-                  <p className="skill-description">
-                    Saya dapat membuat topologi sederhana seperti topologi star di Cisco Packet Tracer
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={75} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">Canva</h3>
-                  <p className="skill-description">
-                    Saya cukup memahami Canva untuk membuat desain seperti poster, presentasi, dan konten visual lainnya.
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-
-          <div className="skill-card">
-            <TextFadeScroll
-              text={
-                <>
-                  <div className="skill-percentage">
-                    <CounterAnimation target={10} duration={2000} />
-                  </div>
-                  <h3 className="skill-label">Winbox</h3>
-                  <p className="skill-description">
-                    Saya dapat melakukan konfigurasi jaringan sederhana di Winbox
-                  </p>
-                </>
-              }
-              direction="Bottom → Top"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Quote Section */}
-      <section className="contact-section-quote" style={{ '--quote-text-color': clampedProgress < 0.5 ? '#1a1a1a' : '#f5f5f5', '--quote-author-color': clampedProgress < 0.5 ? '#666' : 'rgba(245, 245, 245, 0.7)' }}>
-        <div className="quote-wrapper">
-          <TextFadeScroll
-            text={
-              <>
-                <div className="quote-mark">"</div>
-                <blockquote className="quote-text">
-                  Bentuk keputusasaan yang paling mengerikan adalah kamu tidak menjadi dirimu sendiri
-                </blockquote>
-                <div className="quote-author">— Søren Kierkegaard</div>
-              </>
-            }
-            direction="Bottom → Top"
-          />
-        </div>
-      </section>
-
-      {/* Footer Section */}
-      <footer className="footer-section">
-        <div className="footer-content">
-          {/* Footer Top */}
-          <div className="footer-top">
+        {/* Footer Section */}
+        <footer className="footer-section">
+          <div className="footer-content">
+            {/* Footer Top */}
+            <div className="footer-top">
             {/* Links */}
             <div className="footer-column">
               <h4 className="footer-heading">LINKS</h4>

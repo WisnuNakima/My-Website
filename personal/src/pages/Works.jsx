@@ -1,19 +1,13 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import RadiusOnScroll from '../components/RadiusOnScroll'
-import TextFadeScroll from '../components/TextFadeScroll'
 import InteractiveRobot from '../components/InteractiveRobot'
 import PageTransition from '../components/PageTransition'
+import TextFadeScroll from '../components/TextFadeScroll'
+import WorksContentSection from '../sections/WorksContentSection'
 import '../App.css'
 import './Works.css'
-import project1Image from '../assets/website 1.png'
-import project2Image from '../assets/website 2.png'
-import project3Image from '../assets/desainmug.png'
-import project4Image from '../assets/websitesejarah.png'
 
 function Works() {
-  const navigate = useNavigate()
-  const [hoveredProject, setHoveredProject] = useState(null)
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [localTime, setLocalTime] = useState('')
@@ -66,52 +60,8 @@ function Works() {
     setMenuOpen(prev => !prev)
   }
 
-  const handleMenuClose = (e) => {
-    // Don't prevent default navigation
+  const handleMenuClose = () => {
     setMenuOpen(false)
-  }
-
-  const projects = [
-    {
-      id: 1,
-      slug: 'paperplay-company-profile',
-      title: 'WEBSITE PERTAMA SAYA',
-      category: 'Website Pertama Saya',
-      image: project1Image
-    },
-    {
-      id: 2,
-      slug: 'smkn-8-graduation-website',
-      title: 'WEBSITE GAME JOURNAL & REVIEW',
-      category: 'Website Game Journal & Review',
-      image: project2Image
-    },
-    {
-      id: 3,
-      slug: 'kelas-kita',
-      title: 'DESAIN MUG',
-      category: 'Desain Mug',
-      image: project3Image
-    },
-    {
-      id: 4,
-      slug: 'sis-absensi',
-      title: 'WEBSITE SEJARAH',
-      category: 'Website Sejarah',
-      image: project4Image
-    }
-  ]
-
-  const handleProjectClick = (slug) => {
-    navigate(`/works/${slug}`)
-  }
-
-  const handleMouseMove = (e, projectId) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    })
   }
 
   return (
@@ -195,56 +145,7 @@ function Works() {
 
       {/* Works Content */}
       <PageTransition>
-      <section className="works-page">
-        <div className="works-header">
-          <h1 className="works-title">My Work</h1>
-          <p className="works-description">
-            Saya masih berusaha dalam mengembangkan hasil belajar saya ke dalam projek-projek yang saya buat dan saya akan berusaha untuk membuat projek lebih banyak ke depannya.
-          </p>
-        </div>
-
-        <div className="works-list">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="work-item"
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
-              onClick={() => handleProjectClick(project.slug)}
-            >
-              {/* Marquee Text with Image on Hover */}
-              {hoveredProject === project.id && (
-                <div className="work-marquee">
-                  <div className="work-marquee-content">
-                    <span className="marquee-text-item">
-                      {project.title}
-                      <img src={project.image} alt={project.title} className="marquee-image" />
-                    </span>
-                    <span className="marquee-text-item">
-                      {project.title}
-                      <img src={project.image} alt={project.title} className="marquee-image" />
-                    </span>
-                    <span className="marquee-text-item">
-                      {project.title}
-                      <img src={project.image} alt={project.title} className="marquee-image" />
-                    </span>
-                    <span className="marquee-text-item">
-                      {project.title}
-                      <img src={project.image} alt={project.title} className="marquee-image" />
-                    </span>
-                  </div>
-                </div>
-              )}
-
-              {/* Project Title */}
-              <TextFadeScroll
-                text={<h2 className="work-title">{project.title}</h2>}
-                direction="Bottom → Top"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      <WorksContentSection />
 
       {/* Footer Section */}
       <footer className="footer-section">
