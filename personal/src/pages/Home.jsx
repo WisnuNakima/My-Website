@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
-import RadiusOnScroll from '../components/RadiusOnScroll'
+import { Link } from 'react-router-dom'
 import PageTransition from '../components/PageTransition'
+import RadiusOnScroll from '../components/RadiusOnScroll'
 import '../App.css'
 
 // Sections
@@ -90,6 +91,17 @@ function Home() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleMenuToggle = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setMenuOpen(prev => !prev)
+  }
+
+  const handleMenuClose = (e) => {
+    // Don't prevent default navigation
+    setMenuOpen(false)
+  }
+
   return (
     <div className="app">
       {/* Navbar - Only visible in section 1 */}
@@ -101,18 +113,19 @@ function Home() {
         </div>
         <div className="nav-right">
           <div className="nav-menu">
-            <a href="/" className="nav-link active">Home</a>
-            <a href="/about" className="nav-link">About</a>
-            <a href="/works" className="nav-link">Works</a>
+            <Link to="/" className="nav-link active">Home</Link>
+            <Link to="/about" className="nav-link">About</Link>
+            <Link to="/works" className="nav-link">Works</Link>
           </div>
-          <button className="contact-btn" onClick={() => window.location.href = '/contact'}>Contact</button>
+          <Link to="/contact" className="contact-btn">Contact</Link>
         </div>
       </nav>
 
       {/* Hamburger Menu Button - Visible from section 2 onwards */}
       <button 
+        type="button"
         className={`hamburger-menu ${scrolled ? 'visible' : ''} ${menuOpen ? 'open' : ''}`}
-        onClick={() => setMenuOpen(!menuOpen)}
+        onClick={handleMenuToggle}
       >
         <span className="hamburger-line"></span>
         <span className="hamburger-line"></span>
@@ -120,13 +133,13 @@ function Home() {
       </button>
 
       {/* Sidebar Menu Overlay */}
-      <div className={`sidebar-overlay ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(false)}>
+      <div className={`sidebar-overlay ${menuOpen ? 'open' : ''}`} onClick={handleMenuClose}>
         <div className="sidebar-blur"></div>
       </div>
 
       {/* Sidebar Menu */}
       <div className={`sidebar-menu ${menuOpen ? 'open' : ''}`}>
-        <button className="sidebar-close" onClick={() => setMenuOpen(false)}>
+        <button type="button" className="sidebar-close" onClick={handleMenuClose}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -134,19 +147,19 @@ function Home() {
         </button>
 
         <nav className="sidebar-nav">
-          <a href="/" className="sidebar-link" onClick={() => setMenuOpen(false)}>
+          <a href="/" className="sidebar-link" onClick={handleMenuClose}>
             <span>Home</span>
             <span className="sidebar-plus">+</span>
           </a>
-          <a href="/about" className="sidebar-link" onClick={() => setMenuOpen(false)}>
+          <a href="/about" className="sidebar-link" onClick={handleMenuClose}>
             <span>About</span>
             <span className="sidebar-plus">+</span>
           </a>
-          <a href="/works" className="sidebar-link" onClick={() => setMenuOpen(false)}>
+          <a href="/works" className="sidebar-link" onClick={handleMenuClose}>
             <span>Works</span>
             <span className="sidebar-plus">+</span>
           </a>
-          <a href="/contact" className="sidebar-link" onClick={() => setMenuOpen(false)}>
+          <a href="/contact" className="sidebar-link" onClick={handleMenuClose}>
             <span>Contact</span>
             <span className="sidebar-plus">+</span>
           </a>
