@@ -1,7 +1,7 @@
 import TextFadeScroll from '../components/TextFadeScroll'
 import RadiusOnScroll from '../components/RadiusOnScroll'
 import MarqueeText from '../components/MarqueeText'
-import wisnuPhoto from '../assets/wisnu.png'
+import wisnuPhoto from '../assets/me 5.png'
 
 export default function AboutMeSection() {
   return (

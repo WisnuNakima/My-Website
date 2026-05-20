@@ -1,6 +1,6 @@
 import TextFadeScroll from '../components/TextFadeScroll'
 import MarqueeText from '../components/MarqueeText'
-import wisnuPhoto from '../assets/wisnu-about.jpeg'
+import wisnuPhoto from '../assets/me 3.png'
 
 export default function AboutContentSection() {
   return (

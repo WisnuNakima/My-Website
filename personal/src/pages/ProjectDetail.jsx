@@ -17,6 +17,7 @@ function ProjectDetail() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [exploreProgress, setExploreProgress] = useState(0)
   const [scrolled, setScrolled] = useState(false)
+  const [backButtonVisible, setBackButtonVisible] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
   const [hoveredProject, setHoveredProject] = useState(null)
   const [localTime, setLocalTime] = useState('')
@@ -126,12 +127,14 @@ function ProjectDetail() {
         setExploreProgress(exploreProgressValue)
       }
       
-      // Navbar will hide after scrolling past hero section
+      // Navbar and back button will hide after scrolling past hero section
       const heroSection = document.querySelector('.project-hero')
       if (heroSection) {
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
         const scrollPos = window.scrollY + window.innerHeight / 2
-        setScrolled(scrollPos > heroBottom)
+        const shouldHide = scrollPos > heroBottom
+        setScrolled(shouldHide)
+        setBackButtonVisible(!shouldHide)
       }
     }
 
@@ -187,9 +190,9 @@ function ProjectDetail() {
 
   return (
     <div className="app project-detail-page" style={{ backgroundColor }}>
-      {/* Back Button - Always visible */}
+      {/* Back Button - Only visible in section 1 */}
       <button 
-        className="back-button"
+        className={`back-button ${backButtonVisible ? '' : 'hidden'}`}
         onClick={() => navigate('/works')}
         aria-label="Back to Works"
       >
@@ -271,7 +274,7 @@ function ProjectDetail() {
         </div>
 
         <div className="sidebar-footer">
-          <p>Made with ❤️ by Wisnu</p>
+          <p>Made by Wisnu</p>
           <p>© 2026</p>
         </div>
       </div>

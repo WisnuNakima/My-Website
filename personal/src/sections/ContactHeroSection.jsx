@@ -1,5 +1,5 @@
 import TextFadeScroll from '../components/TextFadeScroll'
-import wisnuImage from '../assets/wisnu.png'
+import wisnuImage from '../assets/me2.png'
 
 export default function ContactHeroSection({ isVisible }) {
   return (

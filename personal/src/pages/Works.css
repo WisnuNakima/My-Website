@@ -36,16 +36,20 @@
 
 .work-item {
   position: relative;
-  padding: 3rem 0;
+  padding: 4rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
   overflow: visible;
   transition: all 0.3s ease;
 }
 
+.work-item > div {
+  overflow: visible !important;
+  padding-bottom: 1rem;
+}
+
 .work-item:hover {
   background-color: rgba(0, 0, 0, 0.02);
-  overflow: visible;
 }
 
 .work-item:last-child {
@@ -57,10 +61,14 @@
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.3;
+  padding-bottom: 0.5rem;
   transition: transform 0.3s ease;
   letter-spacing: -0.02em;
   text-align: center;
+  position: relative;
+  z-index: 2;
+  overflow: visible;
 }
 
 .work-item:hover .work-title {

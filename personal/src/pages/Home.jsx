@@ -176,7 +176,7 @@ function Home() {
         </div>
 
         <div className="sidebar-footer">
-          <p>Made with ❤️ by Wisnu</p>
+          <p>Made by Wisnu</p>
           <p>© 2026</p>
         </div>
       </div>
