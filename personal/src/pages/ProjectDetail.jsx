@@ -93,23 +93,25 @@ function ProjectDetail() {
   // Handle scroll for background transition
   useEffect(() => {
     const handleScroll = () => {
+      const heroSection = document.querySelector('.project-hero')
       const heroImage = document.querySelector('.project-hero-image')
       const exploreSection = document.querySelector('.explore-more-section')
       
-      if (heroImage) {
-        const imageTop = heroImage.offsetTop
-        const imageHeight = heroImage.offsetHeight
-        const imageMiddle = imageTop + (imageHeight / 2)
+      if (heroSection && heroImage) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
         const scrollPosition = window.scrollY
         const windowHeight = window.innerHeight
         
-        // Start transition when user reaches middle of the image
-        const startPoint = imageMiddle - windowHeight
-        const scrollFromStart = Math.max(0, scrollPosition - startPoint)
-        
-        // Calculate progress from 0 to 1 based on scroll after reaching image middle
-        const progress = Math.min(scrollFromStart / (windowHeight * 0.8), 1)
-        setScrollProgress(progress)
+        // Only start transition after scrolling past hero section
+        if (scrollPosition > heroBottom - windowHeight) {
+          const scrollFromHero = scrollPosition - (heroBottom - windowHeight)
+          // Transition over 1 viewport height
+          const progress = Math.min(scrollFromHero / windowHeight, 1)
+          setScrollProgress(progress)
+        } else {
+          // Still in hero section, keep background light
+          setScrollProgress(0)
+        }
       }
 
       // Calculate transition from dark to light when approaching explore section
@@ -128,7 +130,6 @@ function ProjectDetail() {
       }
       
       // Navbar and back button will hide after scrolling past hero section
-      const heroSection = document.querySelector('.project-hero')
       if (heroSection) {
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
         const scrollPos = window.scrollY + window.innerHeight / 2

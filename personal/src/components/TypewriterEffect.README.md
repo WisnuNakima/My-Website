@@ -89,7 +89,7 @@ function App() {
 ```jsx
 <h1 style={{ fontSize: '4rem', fontWeight: 700, color: '#1a1a1a' }}>
   <TypewriterEffect 
-    words={['Interested in Frontend', 'Interested in Backend']}
+    words={['Interested in UI/UX', 'Interested in Coding']}
     fontSize="inherit"
     fontWeight="inherit"
     textColor="inherit"
