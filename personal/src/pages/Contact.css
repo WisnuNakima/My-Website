@@ -94,9 +94,11 @@
 .contact-section-personal {
   min-height: 100vh;
   padding: 8rem 4rem;
+  padding-bottom: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: visible;
 }
 
 .contact-section-personal .contact-section-title {
@@ -327,6 +329,10 @@
     padding: 6rem 2rem;
   }
 
+  .contact-section-personal {
+    padding-bottom: 8rem;
+  }
+
   .contact-section-title {
     font-size: 2.5rem;
   }
@@ -386,6 +392,10 @@
   .contact-section-skills,
   .contact-section-quote {
     padding: 5rem 1.5rem;
+  }
+
+  .contact-section-personal {
+    padding-bottom: 7rem;
   }
 
   .contact-section-title {
@@ -473,6 +483,10 @@
     padding: 4rem 1rem;
   }
 
+  .contact-section-personal {
+    padding-bottom: 6rem;
+  }
+
   .contact-section-title {
     font-size: 1.75rem;
   }
@@ -528,5 +542,78 @@
 
   .quote-author {
     font-size: 0.9rem;
+  }
+}
+
+/* Download CV Button */
+.download-cv-container {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  position: relative;
+  z-index: 10;
+  padding: 1rem;
+}
+
+.download-cv-wrapper {
+  overflow: visible !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+.download-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 2.5rem;
+  background-color: #c4ff00;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: 2px solid #c4ff00;
+  box-shadow: 0 4px 20px rgba(196, 255, 0, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+.download-cv-btn:hover {
+  background-color: transparent;
+  color: #c4ff00;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 30px rgba(196, 255, 0, 0.5);
+}
+
+.download-cv-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.download-cv-btn:hover svg {
+  transform: translateY(3px);
+}
+
+@media (max-width: 768px) {
+  .download-cv-container {
+    margin-top: 4rem;
+  }
+
+  .download-cv-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .download-cv-container {
+    margin-top: 3.5rem;
+  }
+
+  .download-cv-btn {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+    gap: 0.5rem;
   }
 }

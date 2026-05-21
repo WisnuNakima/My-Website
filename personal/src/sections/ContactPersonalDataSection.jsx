@@ -91,6 +91,24 @@ export default function ContactPersonalDataSection({ textColor, labelColor }) {
           />
         </div>
       </div>
+
+      {/* Download CV Button */}
+      <div className="download-cv-container">
+        <TextFadeScroll
+          text={
+            <a href="/Wisnu-CV.pdf" download="Wisnu-Nakima-CV.pdf" className="download-cv-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download CV</span>
+            </a>
+          }
+          direction="Bottom → Top"
+          className="download-cv-wrapper"
+        />
+      </div>
     </section>
   )
 }
