@@ -16,7 +16,7 @@ export default function HeroSection() {
           <p className="greeting">Hi! I'm Wisnu</p>
           <h1 className="title">
             <TypewriterEffect 
-              words={['Interested in Frontend', 'Interested in Backend']}
+              words={['Interested in Front-End', 'Interested in Back-End']}
               typingSpeed={100}
               deletingSpeed={60}
               pauseDuration={2000}
