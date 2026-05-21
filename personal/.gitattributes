@@ -1,0 +1,21 @@
+# Treat PDF files as binary
+*.pdf binary
+
+# Auto detect text files and normalize line endings to LF
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted to native line endings on checkout
+*.js text
+*.jsx text
+*.css text
+*.html text
+*.json text
+*.md text
+
+# Denote all files that are truly binary and should not be modified
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
