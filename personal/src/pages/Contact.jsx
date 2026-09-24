@@ -3,6 +3,9 @@ import RadiusOnScroll from '../components/RadiusOnScroll'
 import InteractiveRobot from '../components/InteractiveRobot'
 import PageTransition from '../components/PageTransition'
 import TextFadeScroll from '../components/TextFadeScroll'
+import LanguageToggle from '../components/LanguageToggle'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 import ContactHeroSection from '../sections/ContactHeroSection'
 import ContactPersonalDataSection from '../sections/ContactPersonalDataSection'
 import ContactEducationSection from '../sections/ContactEducationSection'
@@ -12,6 +15,9 @@ import '../App.css'
 import './Contact.css'
 
 function Contact() {
+  const { language } = useLanguage()
+  const t = translations[language]
+  
   const [isVisible, setIsVisible] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -149,11 +155,12 @@ function Contact() {
         </div>
         <div className="nav-right">
           <div className="nav-menu">
-            <a href="/" className="nav-link">Home</a>
-            <a href="/about" className="nav-link">About</a>
-            <a href="/works" className="nav-link">Works</a>
+            <a href="/" className="nav-link">{t.nav.home}</a>
+            <a href="/about" className="nav-link">{t.nav.about}</a>
+            <a href="/works" className="nav-link">{t.nav.works}</a>
           </div>
-          <button className="contact-btn active">Contact</button>
+          <LanguageToggle />
+          <button className="contact-btn active">{t.nav.contact}</button>
         </div>
       </nav>
 
@@ -184,19 +191,19 @@ function Contact() {
 
         <nav className="sidebar-nav">
           <a href="/" className="sidebar-link" onClick={handleMenuClose}>
-            <span>Home</span>
+            <span>{t.nav.home}</span>
             <span className="sidebar-plus">+</span>
           </a>
           <a href="/about" className="sidebar-link" onClick={handleMenuClose}>
-            <span>About</span>
+            <span>{t.nav.about}</span>
             <span className="sidebar-plus">+</span>
           </a>
           <a href="/works" className="sidebar-link" onClick={handleMenuClose}>
-            <span>Works</span>
+            <span>{t.nav.works}</span>
             <span className="sidebar-plus">+</span>
           </a>
           <a href="/contact" className="sidebar-link" onClick={handleMenuClose}>
-            <span>Contact</span>
+            <span>{t.nav.contact}</span>
             <span className="sidebar-plus">+</span>
           </a>
         </nav>
@@ -205,15 +212,15 @@ function Contact() {
           <RadiusOnScroll startRadius={24} endRadius={24} startScale={1} endScale={1}>
             <div className="sidebar-card-content">
               <div className="sidebar-card-emoji">👋</div>
-              <p className="sidebar-card-title">Nice to see you!</p>
-              <p className="sidebar-card-text">I'm Wisnu, Frontend and Backend Enthusiast based in Semarang, Indonesia</p>
+              <p className="sidebar-card-title">{t.sidebar.greeting}</p>
+              <p className="sidebar-card-text">{t.sidebar.intro}</p>
             </div>
           </RadiusOnScroll>
         </div>
 
         <div className="sidebar-footer">
-          <p>Made by Wisnu</p>
-          <p>© 2026</p>
+          <p>{t.footer.madeBy}</p>
+          <p>{t.footer.copyright}</p>
         </div>
       </div>
 
@@ -250,10 +257,10 @@ function Contact() {
             <div className="footer-column">
               <h4 className="footer-heading">LINKS</h4>
               <ul className="footer-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/works">Work</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/">{t.nav.home}</a></li>
+                <li><a href="/works">{t.nav.works}</a></li>
+                <li><a href="/about">{t.nav.about}</a></li>
+                <li><a href="/contact">{t.nav.contact}</a></li>
               </ul>
             </div>
 
@@ -270,14 +277,14 @@ function Contact() {
 
             {/* Local Time */}
             <div className="footer-column">
-              <h4 className="footer-heading">LOCAL TIME</h4>
+              <h4 className="footer-heading">{language === 'en' ? 'LOCAL TIME' : 'WAKTU LOKAL'}</h4>
               <p className="footer-time">{localTime}</p>
             </div>
 
             {/* Version */}
             <div className="footer-column">
-              <h4 className="footer-heading">VERSION</h4>
-              <p className="footer-version">2026 © Edition</p>
+              <h4 className="footer-heading">{language === 'en' ? 'VERSION' : 'VERSI'}</h4>
+              <p className="footer-version">{t.footer.copyright} Edition</p>
             </div>
 
             {/* Contact Buttons */}

@@ -1,7 +1,12 @@
 import TextFadeScroll from '../components/TextFadeScroll'
 import InteractiveRobot from '../components/InteractiveRobot'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 
 export default function FooterSection({ localTime }) {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <footer className="footer-section">
       <div className="footer-content">
@@ -11,10 +16,10 @@ export default function FooterSection({ localTime }) {
           <div className="footer-column">
             <h4 className="footer-heading">LINKS</h4>
             <ul className="footer-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#works">Work</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#home">{t.nav.home}</a></li>
+              <li><a href="#works">{t.nav.works}</a></li>
+              <li><a href="/about">{t.nav.about}</a></li>
+              <li><a href="#contact">{t.nav.contact}</a></li>
             </ul>
           </div>
 
@@ -31,14 +36,14 @@ export default function FooterSection({ localTime }) {
 
           {/* Local Time */}
           <div className="footer-column">
-            <h4 className="footer-heading">LOCAL TIME</h4>
+            <h4 className="footer-heading">{language === 'en' ? 'LOCAL TIME' : 'WAKTU LOKAL'}</h4>
             <p className="footer-time">{localTime}</p>
           </div>
 
           {/* Version */}
           <div className="footer-column">
-            <h4 className="footer-heading">VERSION</h4>
-            <p className="footer-version">2026 © Edition</p>
+            <h4 className="footer-heading">{language === 'en' ? 'VERSION' : 'VERSI'}</h4>
+            <p className="footer-version">{t.footer.copyright} Edition</p>
           </div>
 
           {/* Contact Buttons */}

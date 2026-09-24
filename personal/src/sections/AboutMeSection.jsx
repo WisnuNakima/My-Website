@@ -2,15 +2,20 @@ import TextFadeScroll from '../components/TextFadeScroll'
 import RadiusOnScroll from '../components/RadiusOnScroll'
 import MarqueeText from '../components/MarqueeText'
 import wisnuPhoto from '../assets/me 5.png'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 
 export default function AboutMeSection() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <section id="about-me" className="about-me-section-wrapper">
       <RadiusOnScroll startRadius={100} endRadius={0} startScale={0.8} endScale={1.15}>
         <div className="about-me-section">
           {/* Marquee Text */}
           <div className="marquee-wrapper">
-            <MarqueeText text="INTERESTED IN FRONTEND AND BACKEND • " speed={80} />
+            <MarqueeText text={t.aboutMe.marquee} speed={80} />
           </div>
 
           {/* Main Content */}
@@ -31,10 +36,10 @@ export default function AboutMeSection() {
                 text={
                   <>
                     <h2 className="about-me-title">
-                      Saya berminat pada pengembangan website terutama di bagian Frontend dan Backend.
+                      {t.aboutMe.title}
                     </h2>
                     <p className="about-me-text">
-                      Saya tidak punya pengalaman lomba, organisasi, atau PKL tetapi, saya punya pengalaman dalam mendesain dan membuat webiste. Saya juga sedang terus belajar dalam bidang pengembangan website terutama dalam bidang Frontend dan Backend
+                      {t.aboutMe.description}
                     </p>
                   </>
                 }
@@ -47,7 +52,7 @@ export default function AboutMeSection() {
                   <TextFadeScroll
                     text={
                       <>
-                        <p className="stat-label">MONTHS OF EXPERIENCE</p>
+                        <p className="stat-label">{t.aboutMe.stats.experience}</p>
                         <h3 className="stat-value">3+</h3>
                       </>
                     }
@@ -58,7 +63,7 @@ export default function AboutMeSection() {
                   <TextFadeScroll
                     text={
                       <>
-                        <p className="stat-label">PROJECTS COMPLETED</p>
+                        <p className="stat-label">{t.aboutMe.stats.projects}</p>
                         <h3 className="stat-value">2+</h3>
                       </>
                     }

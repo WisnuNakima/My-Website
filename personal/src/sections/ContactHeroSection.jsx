@@ -1,7 +1,12 @@
 import TextFadeScroll from '../components/TextFadeScroll'
 import wisnuImage from '../assets/me2.png'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 
 export default function ContactHeroSection({ isVisible }) {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <section className={`contact-hero ${isVisible ? 'visible' : ''}`}>
       <div className="contact-hero-content">
@@ -9,9 +14,9 @@ export default function ContactHeroSection({ isVisible }) {
           <TextFadeScroll
             text={
               <>
-                <h1 className="contact-hero-title">Let's Connect</h1>
+                <h1 className="contact-hero-title">{t.contactHero.connectTitle}</h1>
                 <p className="contact-hero-subtitle">
-                  Hubungi saya untuk kolaborasi, pertanyaan, atau sekadar ngobrol tentang teknologi dan proyek menarik
+                  {t.contactHero.connectSubtitle}
                 </p>
               </>
             }

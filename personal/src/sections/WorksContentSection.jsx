@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import TextFadeScroll from '../components/TextFadeScroll'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 import project1Image from '../assets/website 1.png'
 import project2Image from '../assets/website 2.png'
 import project3Image from '../assets/desainmug.png'
@@ -8,27 +10,29 @@ import project4Image from '../assets/websitesejarah.png'
 
 export default function WorksContentSection() {
   const navigate = useNavigate()
+  const { language } = useLanguage()
+  const t = translations[language]
   const [hoveredProject, setHoveredProject] = useState(null)
 
   const projects = [
     {
       id: 'paperplay-company-profile',
-      title: 'Website Pertama Saya',
+      title: t.works.projectTitles.firstWebsite,
       image: project1Image
     },
     {
       id: 'smkn-8-graduation-website',
-      title: 'Website Game Journal & Review',
+      title: t.works.projectTitles.gameJournal,
       image: project2Image
     },
     {
       id: 'kelas-kita',
-      title: 'Desain Mug',
+      title: t.works.projectTitles.mugDesign,
       image: project3Image
     },
     {
       id: 'sis-absensi',
-      title: 'Website Sejarah',
+      title: t.works.projectTitles.historyWebsite,
       image: project4Image
     }
   ]
@@ -40,9 +44,9 @@ export default function WorksContentSection() {
   return (
     <section className="works-page">
       <div className="works-header">
-        <h1 className="works-title">My Work</h1>
+        <h1 className="works-title">{t.works.hero.pageTitle}</h1>
         <p className="works-description">
-          Saya masih berusaha dalam mengembangkan hasil belajar saya ke dalam projek-projek yang saya buat dan saya akan berusaha untuk membuat projek lebih banyak ke depannya.
+          {t.works.hero.pageDescription}
         </p>
       </div>
 

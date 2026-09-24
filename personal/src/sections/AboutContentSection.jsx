@@ -1,13 +1,18 @@
 import TextFadeScroll from '../components/TextFadeScroll'
 import MarqueeText from '../components/MarqueeText'
 import wisnuPhoto from '../assets/me 3.png'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 
 export default function AboutContentSection() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <section className="about-section-2">
       {/* Marquee Text */}
       <div className="about-marquee-wrapper">
-        <MarqueeText text="INTERESTED IN FRONTEND AND BACKEND • " speed={80} />
+        <MarqueeText text={t.aboutContent.marquee} speed={80} />
       </div>
 
       {/* Two Column Layout */}
@@ -18,13 +23,10 @@ export default function AboutContentSection() {
             text={
               <>
                 <p className="about-paragraph">
-                  Saya memiliki kemampuan soft skill berupa kemampuan menghafal sesuatu dengan cukup cepat serta mampu memotivasi diri sendiri agar tetap konsisten dalam menjalankan tugas dan kegiatan sehari-hari, 
-                  disertai dengan sedikit kreativitas dalam menyelesaikan berbagai pekerjaan.
+                  {t.aboutContent.paragraph1}
                 </p>
                 <p className="about-paragraph">
-                 Dalam bidang hard skill, saya mampu membuat desain menggunakan Canva serta menyusun prompt AI agar hasil yang diberikan sesuai dengan kebutuhan dan keinginan saya. 
-                 Selain itu, saya juga termasuk pribadi yang tidak suka menunda pekerjaan, 
-                 sehingga saya selalu berusaha menyelesaikan tugas-tugas lebih awal sebelum akhir pekan tiba agar pekerjaan tetap teratur dan tidak menumpuk.
+                  {t.aboutContent.paragraph2}
                 </p>
               </>
             }

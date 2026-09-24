@@ -2,6 +2,9 @@ import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import PageTransition from '../components/PageTransition'
 import RadiusOnScroll from '../components/RadiusOnScroll'
+import LanguageToggle from '../components/LanguageToggle'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 import '../App.css'
 
 // Sections
@@ -14,6 +17,9 @@ import InterestsSection from '../sections/InterestsSection'
 import FooterSection from '../sections/FooterSection'
 
 function Home() {
+  const { language } = useLanguage()
+  const t = translations[language]
+  
   const [scrolled, setScrolled] = useState(false)
   const [pathProgress, setPathProgress] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -113,11 +119,12 @@ function Home() {
         </div>
         <div className="nav-right">
           <div className="nav-menu">
-            <Link to="/" className="nav-link active">Home</Link>
-            <Link to="/about" className="nav-link">About</Link>
-            <Link to="/works" className="nav-link">Works</Link>
+            <Link to="/" className="nav-link active">{t.nav.home}</Link>
+            <Link to="/about" className="nav-link">{t.nav.about}</Link>
+            <Link to="/works" className="nav-link">{t.nav.works}</Link>
           </div>
-          <Link to="/contact" className="contact-btn">Contact</Link>
+          <LanguageToggle />
+          <Link to="/contact" className="contact-btn">{t.nav.contact}</Link>
         </div>
       </nav>
 
@@ -148,19 +155,19 @@ function Home() {
 
         <nav className="sidebar-nav">
           <a href="/" className="sidebar-link" onClick={handleMenuClose}>
-            <span>Home</span>
+            <span>{t.nav.home}</span>
             <span className="sidebar-plus">+</span>
           </a>
           <a href="/about" className="sidebar-link" onClick={handleMenuClose}>
-            <span>About</span>
+            <span>{t.nav.about}</span>
             <span className="sidebar-plus">+</span>
           </a>
           <a href="/works" className="sidebar-link" onClick={handleMenuClose}>
-            <span>Works</span>
+            <span>{t.nav.works}</span>
             <span className="sidebar-plus">+</span>
           </a>
           <a href="/contact" className="sidebar-link" onClick={handleMenuClose}>
-            <span>Contact</span>
+            <span>{t.nav.contact}</span>
             <span className="sidebar-plus">+</span>
           </a>
         </nav>
@@ -169,15 +176,15 @@ function Home() {
           <RadiusOnScroll startRadius={24} endRadius={24} startScale={1} endScale={1}>
             <div className="sidebar-card-content">
               <div className="sidebar-card-emoji">👋</div>
-              <p className="sidebar-card-title">Nice to see you!</p>
-              <p className="sidebar-card-text">I'm Wisnu, Frontend and Backend Enthusiast based in Semarang, Indonesia</p>
+              <p className="sidebar-card-title">{t.sidebar.greeting}</p>
+              <p className="sidebar-card-text">{t.sidebar.intro}</p>
             </div>
           </RadiusOnScroll>
         </div>
 
         <div className="sidebar-footer">
-          <p>Made by Wisnu</p>
-          <p>© 2026</p>
+          <p>{t.footer.madeBy}</p>
+          <p>{t.footer.copyright}</p>
         </div>
       </div>
 

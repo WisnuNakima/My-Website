@@ -1,17 +1,20 @@
 import TextFadeScroll from '../components/TextFadeScroll'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 
 export default function AboutHeroSection({ isVisible }) {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <section className={`about-hero ${isVisible ? 'visible' : ''}`}>
       <div className="about-hero-content">
         <TextFadeScroll
           text={
             <>
-              <h1 className="about-hero-title">About Me</h1>
+              <h1 className="about-hero-title">{t.aboutHero.title}</h1>
               <p className="about-hero-subtitle">
-                Saya memiliki hobi bermain game, mendengarkan musik, dan membeli berbagai mainan untuk koleksi pribadi meskipun saya sudah dewasa, 
-                karena hal tersebut menjadi salah satu cara saya untuk menikmati waktu luang dan mengekspresikan minat yang saya sukai sejak lama. 
-                Selain itu, saya juga memiliki keinginan besar untuk dapat bekerja atau berlibur di luar negeri agar bisa mendapatkan pengalaman baru, mengenal budaya yang berbeda, serta memperluas wawasan dan relasi di masa depan.
+                {t.aboutHero.subtitle}
               </p>
             </>
           }

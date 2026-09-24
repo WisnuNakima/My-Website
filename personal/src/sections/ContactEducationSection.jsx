@@ -1,11 +1,16 @@
 import TextFadeScroll from '../components/TextFadeScroll'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 
 export default function ContactEducationSection({ educationTitleColor, educationTextColor, educationRoleColor, educationPeriodColor }) {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <section className="contact-section-education" style={{ '--education-title-color': educationTitleColor, '--education-text-color': educationTextColor, '--education-role-color': educationRoleColor, '--education-period-color': educationPeriodColor }}>
       <div className="contact-section-header">
         <TextFadeScroll
-          text={<h2 className="contact-section-title">Data Pendidikan</h2>}
+          text={<h2 className="contact-section-title">{t.contactEducation.dataTitle}</h2>}
           direction="Bottom → Top"
         />
       </div>
@@ -15,9 +20,9 @@ export default function ContactEducationSection({ educationTitleColor, education
           <TextFadeScroll
             text={
               <>
-                <div className="education-period">2014 - 2016</div>
-                <h3 className="education-school">TK Busthanul Atfal 36</h3>
-                <p className="education-role">Kindergarten Student</p>
+                <div className="education-period">{t.contactEducation.timeline.tk.period}</div>
+                <h3 className="education-school">{t.contactEducation.timeline.tk.school}</h3>
+                <p className="education-role">{t.contactEducation.timeline.tk.role}</p>
               </>
             }
             direction="Bottom → Top"
@@ -28,9 +33,9 @@ export default function ContactEducationSection({ educationTitleColor, education
           <TextFadeScroll
             text={
               <>
-                <div className="education-period">2016 - 2021</div>
-                <h3 className="education-school">SD N Lamper Kidul 01</h3>
-                <p className="education-role">Elementary School Student</p>
+                <div className="education-period">{t.contactEducation.timeline.sd.period}</div>
+                <h3 className="education-school">{t.contactEducation.timeline.sd.school}</h3>
+                <p className="education-role">{t.contactEducation.timeline.sd.role}</p>
               </>
             }
             direction="Bottom → Top"
@@ -41,9 +46,9 @@ export default function ContactEducationSection({ educationTitleColor, education
           <TextFadeScroll
             text={
               <>
-                <div className="education-period">2021 - 2024</div>
-                <h3 className="education-school">SMP N 27 Semarang</h3>
-                <p className="education-role">Junior High School Student</p>
+                <div className="education-period">{t.contactEducation.timeline.smp.period}</div>
+                <h3 className="education-school">{t.contactEducation.timeline.smp.school}</h3>
+                <p className="education-role">{t.contactEducation.timeline.smp.role}</p>
               </>
             }
             direction="Bottom → Top"
@@ -54,9 +59,9 @@ export default function ContactEducationSection({ educationTitleColor, education
           <TextFadeScroll
             text={
               <>
-                <div className="education-period">2024 - PRESENT</div>
-                <h3 className="education-school">SMK N 7 Semarang</h3>
-                <p className="education-role">Vocational High School Student (SIJA)</p>
+                <div className="education-period">{t.contactEducation.timeline.smk.period}</div>
+                <h3 className="education-school">{t.contactEducation.timeline.smk.school}</h3>
+                <p className="education-role">{t.contactEducation.timeline.smk.role}</p>
               </>
             }
             direction="Bottom → Top"

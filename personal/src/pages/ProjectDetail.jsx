@@ -4,6 +4,9 @@ import TextFadeScroll from '../components/TextFadeScroll'
 import RadiusOnScroll from '../components/RadiusOnScroll'
 import MarqueeText from '../components/MarqueeText'
 import InteractiveRobot from '../components/InteractiveRobot'
+import LanguageToggle from '../components/LanguageToggle'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 import '../App.css'
 import './ProjectDetail.css'
 import project1Image from '../assets/website 1.png'
@@ -14,6 +17,8 @@ import project4Image from '../assets/websitesejarah.png'
 function ProjectDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const { language } = useLanguage()
+  const t = translations[language]
   const [scrollProgress, setScrollProgress] = useState(0)
   const [exploreProgress, setExploreProgress] = useState(0)
   const [scrolled, setScrolled] = useState(false)
@@ -24,34 +29,34 @@ function ProjectDetail() {
 
   const projects = {
     'paperplay-company-profile': {
-      title: 'Website\nPertama Saya',
-      subtitle: 'Website Pertama Saya',
+      title: t.projectDetail.projects['paperplay-company-profile'].title,
+      subtitle: t.projectDetail.projects['paperplay-company-profile'].subtitle,
       image: project1Image,
-      description: 'Ini adalah tugas jurusan dan web pertama saya. Saya membuat web ini sekitar 8 jam non-stop dengan melihat tutorial di youtube.',
+      description: t.projectDetail.projects['paperplay-company-profile'].description,
       link: 'https://github.com/WisnuNakima/Website-Pertama-Saya.git',
       tech: ['HTML', 'CSS']
     },
     'smkn-8-graduation-website': {
-      title: 'Website\nGame Journal &\nReview',
-      subtitle: 'Website Game Journal & Review',
+      title: t.projectDetail.projects['smkn-8-graduation-website'].title,
+      subtitle: t.projectDetail.projects['smkn-8-graduation-website'].subtitle,
       image: project2Image,
-      description: 'Ini juga merupakan tugas website kelompok dari jurusan dan kami membuat website ini dengan tema Game Journal dan Review.',
+      description: t.projectDetail.projects['smkn-8-graduation-website'].description,
       link: 'https://game-journal-review.page.gd/',
       tech: ['HTML', 'CSS', 'JavaScript']
     },
     'kelas-kita': {
-      title: 'Desain Mug',
-      subtitle: 'Desain Mug',
+      title: t.projectDetail.projects['kelas-kita'].title,
+      subtitle: t.projectDetail.projects['kelas-kita'].subtitle,
       image: project3Image,
-      description: 'Jadi saat itu ada tugas dari jurusan untuk mendesain sebuah mug dan saya kepikiran untuk mendesain mug itu dengan artis favorit saya.',
+      description: t.projectDetail.projects['kelas-kita'].description,
       link: 'https://canva.link/6d0sam7udnpr46t',
       tech: ['Canva']
     },
     'sis-absensi': {
-      title: 'Website\nSejarah',
-      subtitle: 'Website Sejarah',
+      title: t.projectDetail.projects['sis-absensi'].title,
+      subtitle: t.projectDetail.projects['sis-absensi'].subtitle,
       image: project4Image,
-      description: 'Website ini adalah tugas mata pelajaran sejarah dan bertema tentang era reformasi Indonesia.',
+      description: t.projectDetail.projects['sis-absensi'].description,
       link: 'https://wisnunakima.github.io/Website-Sejarah/',
       tech: ['HTML', 'CSS', 'JavaScript']
     }
@@ -200,7 +205,7 @@ function ProjectDetail() {
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M19 12H5M5 12L12 19M5 12L12 5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-        <span>Back</span>
+        <span>{t.projectDetail.back}</span>
       </button>
 
       {/* Navbar - Only visible in section 1 */}
@@ -212,11 +217,12 @@ function ProjectDetail() {
         </div>
         <div className="nav-right">
           <div className="nav-menu">
-            <a href="/" className="nav-link">Home</a>
-            <a href="/about" className="nav-link">About</a>
-            <a href="/works" className="nav-link active">Works</a>
+            <a href="/" className="nav-link">{t.nav.home}</a>
+            <a href="/about" className="nav-link">{t.nav.about}</a>
+            <a href="/works" className="nav-link active">{t.nav.works}</a>
           </div>
-          <button className="contact-btn" onClick={() => window.location.href = '/contact'}>Contact</button>
+          <LanguageToggle />
+          <button className="contact-btn" onClick={() => window.location.href = '/contact'}>{t.nav.contact}</button>
         </div>
       </nav>
 
@@ -247,19 +253,19 @@ function ProjectDetail() {
 
         <nav className="sidebar-nav">
           <a href="/" className="sidebar-link" onClick={handleMenuClose}>
-            <span>Home</span>
+            <span>{t.nav.home}</span>
             <span className="sidebar-plus">+</span>
           </a>
           <a href="/about" className="sidebar-link" onClick={handleMenuClose}>
-            <span>About</span>
+            <span>{t.nav.about}</span>
             <span className="sidebar-plus">+</span>
           </a>
           <a href="/works" className="sidebar-link" onClick={handleMenuClose}>
-            <span>Works</span>
+            <span>{t.nav.works}</span>
             <span className="sidebar-plus">+</span>
           </a>
           <a href="/contact" className="sidebar-link" onClick={handleMenuClose}>
-            <span>Contact</span>
+            <span>{t.nav.contact}</span>
             <span className="sidebar-plus">+</span>
           </a>
         </nav>
@@ -268,15 +274,15 @@ function ProjectDetail() {
           <RadiusOnScroll startRadius={24} endRadius={24} startScale={1} endScale={1}>
             <div className="sidebar-card-content">
               <div className="sidebar-card-emoji">👋</div>
-              <p className="sidebar-card-title">Nice to see you!</p>
-              <p className="sidebar-card-text">I'm Wisnu, Frontend and Backend Enthusiast based in Semarang, Indonesia</p>
+              <p className="sidebar-card-title">{t.sidebar.greeting}</p>
+              <p className="sidebar-card-text">{t.sidebar.intro}</p>
             </div>
           </RadiusOnScroll>
         </div>
 
         <div className="sidebar-footer">
-          <p>Made by Wisnu</p>
-          <p>© 2026</p>
+          <p>{t.footer.madeBy}</p>
+          <p>{t.footer.copyright}</p>
         </div>
       </div>
 
@@ -296,15 +302,19 @@ function ProjectDetail() {
             }
             direction="Bottom → Top"
           />
-          <p className="project-hero-subtitle">
-            Disini anda akan melihat<br />lebih detail tentang projek saya
-          </p>
+          <p className="project-hero-subtitle"
+            dangerouslySetInnerHTML={{ 
+              __html: language === 'en' 
+                ? 'Here you will see<br />more details about my project'
+                : 'Disini anda akan melihat<br />lebih detail tentang projek saya'
+            }}
+          />
           <div className="scroll-indicator">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10"></circle>
               <path d="M12 8v8m0 0l-4-4m4 4l4-4"></path>
             </svg>
-            <span>SCROLL TO EXPLORE</span>
+            <span>{t.projectDetail.scrollToExplore}</span>
           </div>
         </div>
 
@@ -328,7 +338,7 @@ function ProjectDetail() {
               rel="noopener noreferrer" 
               className="project-link-btn"
             >
-              <span>{id === 'kelas-kita' ? 'Canva' : 'Live Website'}</span>
+              <span>{id === 'kelas-kita' ? t.projectDetail.canva : t.projectDetail.liveWebsite}</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M7 17L17 7M17 7H7M17 7V17"></path>
               </svg>
@@ -337,8 +347,8 @@ function ProjectDetail() {
 
           {/* Right: Tech Stack */}
           <div className="project-tech">
-            <h3 className="project-tech-title">Client</h3>
-            <p className="project-tech-client">Wisnu Nakima</p>
+            <h3 className="project-tech-title">{t.projectDetail.client}</h3>
+            <p className="project-tech-client">{t.projectDetail.clientName}</p>
             <div className="project-tech-tags">
               {project.tech.map((tech, index) => (
                 <span key={index} className="tech-tag">
@@ -354,7 +364,7 @@ function ProjectDetail() {
       <section className="explore-more-section">
         {/* Curved Marquee Text */}
         <div className="curved-marquee-wrapper">
-          <MarqueeText text="EXPLORE MORE • MY WORKS • " speed={80} />
+          <MarqueeText text={t.projectDetail.exploreMore} speed={80} />
         </div>
 
         {/* Other Projects */}
@@ -414,10 +424,10 @@ function ProjectDetail() {
             <div className="footer-column">
               <h4 className="footer-heading">LINKS</h4>
               <ul className="footer-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/works">Work</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/">{t.nav.home}</a></li>
+                <li><a href="/works">{t.nav.works}</a></li>
+                <li><a href="/about">{t.nav.about}</a></li>
+                <li><a href="/contact">{t.nav.contact}</a></li>
               </ul>
             </div>
 
@@ -434,14 +444,14 @@ function ProjectDetail() {
 
             {/* Local Time */}
             <div className="footer-column">
-              <h4 className="footer-heading">LOCAL TIME</h4>
+              <h4 className="footer-heading">{language === 'en' ? 'LOCAL TIME' : 'WAKTU LOKAL'}</h4>
               <p className="footer-time">{localTime}</p>
             </div>
 
             {/* Version */}
             <div className="footer-column">
-              <h4 className="footer-heading">VERSION</h4>
-              <p className="footer-version">2026 © Edition</p>
+              <h4 className="footer-heading">{language === 'en' ? 'VERSION' : 'VERSI'}</h4>
+              <p className="footer-version">{t.footer.copyright} Edition</p>
             </div>
 
             {/* Contact Buttons */}

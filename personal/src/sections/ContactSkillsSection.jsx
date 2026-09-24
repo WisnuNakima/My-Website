@@ -1,12 +1,17 @@
 import TextFadeScroll from '../components/TextFadeScroll'
 import CounterAnimation from '../components/CounterAnimation'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 
 export default function ContactSkillsSection({ skillsTitleColor }) {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <section className="contact-section-skills" style={{ '--skills-title-color': skillsTitleColor }}>
       <div className="contact-section-header">
         <TextFadeScroll
-          text={<h2 className="contact-section-title">Data Skills</h2>}
+          text={<h2 className="contact-section-title">{t.contactSkills.dataTitle}</h2>}
           direction="Bottom → Top"
         />
       </div>
@@ -21,7 +26,7 @@ export default function ContactSkillsSection({ skillsTitleColor }) {
                 </div>
                 <h3 className="skill-label">HTML</h3>
                 <p className="skill-description">
-                  Saya sudah mempelajari dasar HTML untuk membuat struktur dan tampilan awal sebuah website sederhana.
+                  {t.contactSkills.skills.html.description}
                 </p>
               </>
             }
@@ -38,7 +43,7 @@ export default function ContactSkillsSection({ skillsTitleColor }) {
                 </div>
                 <h3 className="skill-label">CSS</h3>
                 <p className="skill-description">
-                  Saya mempelajari dasar CSS untuk mengatur warna, font, dan tampilan website agar lebih menarik.
+                  {t.contactSkills.skills.css.description}
                 </p>
               </>
             }
@@ -55,7 +60,7 @@ export default function ContactSkillsSection({ skillsTitleColor }) {
                 </div>
                 <h3 className="skill-label">JavaScript</h3>
                 <p className="skill-description">
-                  Saya baru memahami dasar JavaScript untuk membuat interaksi sederhana pada website.
+                  {t.contactSkills.skills.javascript.description}
                 </p>
               </>
             }
@@ -70,9 +75,9 @@ export default function ContactSkillsSection({ skillsTitleColor }) {
                 <div className="skill-percentage">
                   <CounterAnimation target={10} duration={2000} />
                 </div>
-                <h3 className="skill-label">Cisco Packet Tracer</h3>
+                <h3 className="skill-label">{t.contactSkills.skills.ciscoPacketTracer.label}</h3>
                 <p className="skill-description">
-                  Saya dapat membuat topologi sederhana seperti topologi star di Cisco Packet Tracer
+                  {t.contactSkills.skills.ciscoPacketTracer.description}
                 </p>
               </>
             }
@@ -89,7 +94,7 @@ export default function ContactSkillsSection({ skillsTitleColor }) {
                 </div>
                 <h3 className="skill-label">Canva</h3>
                 <p className="skill-description">
-                  Saya cukup memahami Canva untuk membuat desain seperti poster, presentasi, dan konten visual lainnya.
+                  {t.contactSkills.skills.canva.description}
                 </p>
               </>
             }
@@ -106,7 +111,7 @@ export default function ContactSkillsSection({ skillsTitleColor }) {
                 </div>
                 <h3 className="skill-label">Winbox</h3>
                 <p className="skill-description">
-                  Saya dapat melakukan konfigurasi jaringan sederhana di Winbox
+                  {t.contactSkills.skills.winbox.description}
                 </p>
               </>
             }

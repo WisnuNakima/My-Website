@@ -1,4 +1,21 @@
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
+
 export default function AboutSection({ scrolled }) {
+  const { language } = useLanguage()
+  const t = translations[language]
+
+  const aboutTitle = language === 'en' 
+    ? "Hello, I'm Wisnu – My full name is Wisnu Nakima Farras Yovidevano and I am someone who really loves music."
+    : "Halo I'm Wisnu – Nama panjang saya adalah Wisnu Nakima Farras Yovidevano dan saya adalah seseorang yang sangat menyukai musik."
+
+  const aboutDescription = language === 'en'
+    ? "I am an only child. I was born and raised in Semarang, Central Java. Both my father and mother are also from Semarang."
+    : "Saya adalah seorang anak tunggal. Saya lahir dan besar di Semarang, Jawa Tengah. Ayah saya dan ibu saya, keduanya berasal dari Semarang juga."
+
+  const scrollToExplore = language === 'en' ? 'Scroll to Explore' : 'Gulir untuk Menjelajah'
+  const myStory = language === 'en' ? 'My Short Story' : 'Cerita Singkat Saya'
+
   return (
     <>
       {/* Curved Divider */}
@@ -16,22 +33,22 @@ export default function AboutSection({ scrolled }) {
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M8 2L8 14M8 14L3 9M8 14L13 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span>Scroll to Explore</span>
+            <span>{scrollToExplore}</span>
           </button>
-          <span className="my-story">My Short Story</span>
+          <span className="my-story">{myStory}</span>
         </div>
 
         <div className={`about-content ${scrolled ? 'visible' : ''}`}>
           <h2 className="about-title">
-            Halo I'm Wisnu – Nama panjang saya adalah Wisnu Nakima Farras Yovidevano dan saya adalah seseorang yang sangat menyukai musik.
+            {aboutTitle}
           </h2>
           
           <p className="about-description">
-            Saya adalah seorang anak tunggal. Saya lahir dan besar di Semarang, Jawa Tengah. Ayah saya dan ibu saya, keduanya berasal dari Semarang juga.
+            {aboutDescription}
           </p>
           
           <div className="about-actions">
-            <a href="/about" className="about-btn">About Me</a>
+            <a href="/about" className="about-btn">{t.about.title}</a>
             <a href="/about" className="arrow-btn">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

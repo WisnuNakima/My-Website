@@ -1,7 +1,12 @@
 import NovaGlow from '../components/NovaGlow'
 import TypewriterEffect from '../components/TypewriterEffect'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 
 export default function HeroSection() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <section id="home" className="hero-section">
       <div className="hero-content">
@@ -13,10 +18,10 @@ export default function HeroSection() {
           />
         </div>
         <div className="hero-text">
-          <p className="greeting">Hi! I'm Wisnu</p>
+          <p className="greeting">{t.hero.greeting}</p>
           <h1 className="title">
             <TypewriterEffect 
-              words={['Interested in Front-End', 'Interested in Back-End']}
+              words={t.hero.typewriterWords}
               typingSpeed={100}
               deletingSpeed={60}
               pauseDuration={2000}

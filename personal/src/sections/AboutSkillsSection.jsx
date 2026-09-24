@@ -1,17 +1,21 @@
 import TextFadeScroll from '../components/TextFadeScroll'
 import CounterAnimation from '../components/CounterAnimation'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations/translations'
 
 export default function AboutSkillsSection() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <section className="about-section-3">
       <div className="skills-header">
         <TextFadeScroll
           text={
             <>
-              <h2 className="skills-title">My Skills</h2>
+              <h2 className="skills-title">{t.aboutSkills.title}</h2>
               <p className="skills-subtitle">
-                Saya akan terus belajar sebanyak-banyaknya 
-                agar ilmu yang saya pelajari agar berguna di masa depan
+                {t.aboutSkills.subtitle}
               </p>
             </>
           }
@@ -30,7 +34,7 @@ export default function AboutSkillsSection() {
                 </div>
                 <h3 className="skill-label">HTML</h3>
                 <p className="skill-description">
-                  Saya sudah mempelajari dasar HTML untuk membuat struktur dan tampilan awal sebuah website sederhana.
+                  {t.aboutSkills.skills.html.description}
                 </p>
               </>
             }
@@ -47,7 +51,7 @@ export default function AboutSkillsSection() {
                 </div>
                 <h3 className="skill-label">CSS</h3>
                 <p className="skill-description">
-                  Saya mempelajari dasar CSS untuk mengatur warna, font, dan tampilan website agar lebih menarik.
+                  {t.aboutSkills.skills.css.description}
                 </p>
               </>
             }
@@ -64,7 +68,7 @@ export default function AboutSkillsSection() {
                 </div>
                 <h3 className="skill-label">JavaScript</h3>
                 <p className="skill-description">
-                  Saya baru memahami dasar JavaScript untuk membuat interaksi sederhana pada website.
+                  {t.aboutSkills.skills.javascript.description}
                 </p>
               </>
             }
@@ -80,9 +84,9 @@ export default function AboutSkillsSection() {
                 <div className="skill-percentage">
                   <CounterAnimation target={10} duration={2000} />
                 </div>
-                <h3 className="skill-label">Cisco Packet Tracer</h3>
+                <h3 className="skill-label">{t.aboutSkills.skills.ciscoPacketTracer.label}</h3>
                 <p className="skill-description">
-                  Saya dapat membuat topologi sederhana seperti topologi star di Cisco Packet Tracer
+                  {t.aboutSkills.skills.ciscoPacketTracer.description}
                 </p>
               </>
             }
@@ -99,7 +103,7 @@ export default function AboutSkillsSection() {
                 </div>
                 <h3 className="skill-label">Canva</h3>
                 <p className="skill-description">
-                  Saya cukup memahami Canva untuk membuat desain seperti poster, presentasi, dan konten visual lainnya.
+                  {t.aboutSkills.skills.canva.description}
                 </p>
               </>
             }
@@ -116,7 +120,7 @@ export default function AboutSkillsSection() {
                 </div>
                 <h3 className="skill-label">Winbox</h3>
                 <p className="skill-description">
-                  Saya dapat melakukan konfigurasi jaringan sederhana di Winbox
+                  {t.aboutSkills.skills.winbox.description}
                 </p>
               </>
             }
